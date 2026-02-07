@@ -7,10 +7,10 @@ Rice config for **Hyprland** on Arch Linux,
 running on my **ThinkPad X1 Carbon** (_dionysus_)
 
 ## Features
-    - Animated **Neofetch**
-    - Dynamic **Waybar**
-    - ASCII **Cava Visualiser**
-    - Nord-inspired **neon-radioactive theme**
+  - Animated **Neofetch**
+  - Dynamic **Waybar**
+  - ASCII **Cava Visualiser**
+  - Nord-inspired **neon-radioactive theme**
 
 ##  Contents
 - [alacritty][alacritty] → terminal config  
@@ -21,7 +21,7 @@ running on my **ThinkPad X1 Carbon** (_dionysus_)
 - [rofi][rofi] → launcher + powermenu  
 - [waybar][waybar] → status bar  
 - [zsh][zsh] → zsh aliases & functions  
-- [.zshrc][.zshrc/] → shell configs  
+- [zshrc][zshrc] → shell configs  
 
 [alacritty]: alacritty/
 [cava]: cava/
@@ -32,3 +32,4 @@ running on my **ThinkPad X1 Carbon** (_dionysus_)
 [rofi]: rofi/
 [waybar]: waybar/
 [zsh]: zsh/
+[zshrc]: .zshrc/
