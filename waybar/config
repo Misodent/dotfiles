@@ -1,5 +1,5 @@
 // ──────────────────────────────────────────────────────────────────────────
-//  °˖* ૮(  • ᴗ ｡)っ🍸  pewdiepie/archdaemon/dionysh shhheersh
+//  °˖* ૮(  • ᴗ ｡)っ🍸 
 //  Waybar config
 //  vers. 1.0.0
 // ──────────────────────────────────────────────────────────────────────────
@@ -25,7 +25,7 @@
   "modules-center": [
     "custom/workspace-1",
     "custom/workspace-2",
-    "custom/asus-profile",
+    "custom/cpu-profile",
     "custom/workspace-3",
     "custom/workspace-4"
   ],
@@ -72,26 +72,23 @@
       "enabled": "[  ]",
       "disabled": "[ 󰂲 ]"
     },
-    "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+    "on-click": "$HOME/.config/waybar/scripts/bluetooth-toggle.sh",
     "tooltip-format": "Bluetooth is {status}",
     "interval": 5
   },
 
 
-  // ── Asus Profile ─────────────────────────────────────────────────
-  "custom/asus-profile": {
-    "exec": "$HOME/.config/waybar/scripts/asus-profile.sh",
+  // ── CPU Profile ─────────────────────────────────────────────────
+  "custom/cpu-profile": {
+    "exec": "$HOME/.config/waybar/scripts/cpu-profile.sh",
     "interval": 3,
     "format": "{}",
-    "tooltip": true,
-    "tooltip-format": "Toggle ASUS profile",
-    "on-click": "$HOME/.config/waybar/scripts/cycle-profile.sh"
   },
 
 
   // ── Battery (scripted + built-in) ────────────────────────────────
   "custom/battery": {
-    "exec": "~/.config/waybar/scripts/battery.sh",
+    "exec": "$HOME/.config/waybar/scripts/battery.sh",
     "return-type": "json",
     "interval": 10,
     "on-click": "xfce4-power-manager-settings"
@@ -119,7 +116,7 @@
 
   // ── Microphone ───────────────────────────────────────────────────
   "custom/microphone": {
-    "exec": "~/.config/waybar/scripts/mic.sh",
+    "exec": "$HOME/.config/waybar/scripts/mic.sh",
     "interval": 1,
     "tooltip": true,
     "tooltip-format": "Mic Toggle",
@@ -128,10 +125,10 @@
 
   // ── Brightness ───────────────────────────────────────────────────
   "custom/brightness": {
-    "exec": "~/.config/waybar/scripts/brightness.sh",
+    "exec": "$HOME/.config/waybar/scripts/brightness.sh",
     "return-type": "json",
     "interval": 2,
-    "on-click": "~/.config/waybar/scripts/brightness-toggle.sh",
+    "on-click": "$HOME/.config/waybar/scripts/brightness-toggle.sh",
     "on-scroll-up": "brightnessctl set +5%",
     "on-scroll-down": "brightnessctl set 5%-"
   },
@@ -140,30 +137,30 @@
     "format": "󰛨  {percent}%",
     "format-icons": ["󰃞","󰃟","󰃠","󰃝","󰃜","󰃛"],
     "class": "flicker-bar",
-    "on-click": "~/.config/waybar/scripts/brightness-slider.sh"
+    "on-click": "$HOME/.config/waybar/scripts/brightness-slider.sh"
   },
 
   // ── Workspaces (custom scripts) ──────────────────────────────────
   "custom/workspace-1": {
-    "exec": "~/.config/waybar/scripts/workspaces/workspace-1.sh",
+    "exec": "$HOME/.config/waybar/scripts/workspaces/workspace-1.sh",
     "interval": 1,
     "on-click": "hyprctl dispatch workspace 1",
     "tooltip": "Switch to workspace 1"
   },
   "custom/workspace-2": {
-    "exec": "~/.config/waybar/scripts/workspaces/workspace-2.sh",
+    "exec": "$HOME/.config/waybar/scripts/workspaces/workspace-2.sh",
     "interval": 1,
     "on-click": "hyprctl dispatch workspace 2",
     "tooltip": "Switch to workspace 2"
   },
   "custom/workspace-3": {
-    "exec": "~/.config/waybar/scripts/workspaces/workspace-3.sh",
+    "exec": "$HOME/.config/waybar/scripts/workspaces/workspace-3.sh",
     "interval": 1,
     "on-click": "hyprctl dispatch workspace 3",
     "tooltip": "Switch to workspace 3"
   },
   "custom/workspace-4": {
-    "exec": "~/.config/waybar/scripts/workspaces/workspace-4.sh",
+    "exec": "$HOME/.config/waybar/scripts/workspaces/workspace-4.sh",
     "interval": 1,
     "on-click": "hyprctl dispatch workspace 4",
     "tooltip": "Switch to workspace 4"
@@ -171,7 +168,7 @@
 
   // ── Volume ───────────────────────────────────────────────────────
   "custom/volume": {
-    "exec": "~/.config/waybar/scripts/volume.sh",
+    "exec": "$HOME/.config/waybar/scripts/volume.sh",
     "return-type": "json",
     "interval": 1,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
@@ -179,12 +176,23 @@
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
 
+   // ── VPN ──────────────────────────────────────────────────────────
+  "custom/vpn": {
+    "exec": "$HOME/.config/waybar/scripts/vpn-status.sh",
+    "interval": 5,
+    "on-click": "$HOME/.config/waybar/scripts/vpn-toggle.sh",
+    "format": "{}",
+    "markup": "pango",
+    "tooltip": true,
+    "tooltip-format": "VPN Status / Toggle"
+  },
+
   // ── Power ────────────────────────────────────────────────────────
   "custom/power": {
     "format": "[ 󰤆 ]",
     "tooltip": true,
     "tooltip-format": "Power Menu",
-    "on-click": "~/.config/waybar/scripts/powermenu.sh"
+    "on-click": "$HOME/.config/waybar/scripts/powermenu.sh"
   },
 
   // ── Spacer ───────────────────────────────────────────────────────

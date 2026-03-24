@@ -3,6 +3,8 @@
 # ==================
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/Downloads/worldbanc/private/bin:$PATH"
+export PATH="/usr/bin/go:$HOME/go/bin:$PATH"
 
 # Pyenv (optional, only if installed)
 # if command -v pyenv >/dev/null 2>&1; then
@@ -58,6 +60,9 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
 #  Animated Neofetch Splash
 # ==================
 if [[ -n $PS1 ]]; then
-   ~/.config/neofetch/animated-neofetch.sh 0.05
+   $HOME/.config/neofetch/animated-neofetch.sh 0.05
   clear
 fi
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

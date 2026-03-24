@@ -32,15 +32,15 @@
 ")
 
 ;; === Workspace Status ─────────────────────────────────────────────────────────
-(defpoll ws1 :interval "1s" "bash ~/.config/eww/scripts/sys/sys_workspace.sh | grep ws1= | cut -d= -f2 || echo 'null'")
-(defpoll ws2 :interval "1s" "bash ~/.config/eww/scripts/sys/sys_workspace.sh | grep ws2= | cut -d= -f2 || echo 'null'")
-(defpoll ws3 :interval "1s" "bash ~/.config/eww/scripts/sys/sys_workspace.sh | grep ws3= | cut -d= -f2 || echo 'null'")
-(defpoll ws4 :interval "1s" "bash ~/.config/eww/scripts/sys/sys_workspace.sh | grep ws4= | cut -d= -f2 || echo 'null'")
+(defpoll ws1 :interval "1s" "bash $HOME/.config/eww/scripts/sys/sys_workspace.sh | grep ws1= | cut -d= -f2 || echo 'null'")
+(defpoll ws2 :interval "1s" "bash $HOME/.config/eww/scripts/sys/sys_workspace.sh | grep ws2= | cut -d= -f2 || echo 'null'")
+(defpoll ws3 :interval "1s" "bash $HOME/.config/eww/scripts/sys/sys_workspace.sh | grep ws3= | cut -d= -f2 || echo 'null'")
+(defpoll ws4 :interval "1s" "bash $HOME/.config/eww/scripts/sys/sys_workspace.sh | grep ws4= | cut -d= -f2 || echo 'null'")
 (defpoll current_workspace :interval "0.5s" "hyprctl activeworkspace -j | jq -r '.id' || echo 'null'")
 
 ;; === Power & Voltage ─────────────────────────────────────────────────────────
-(defpoll dc_voltage  :interval "10s" "bash ~/.config/eww/scripts/sys/sys_dc_voltage.sh || echo 'null'")
-(defpoll power_mode  :interval "10s" "bash ~/.config/eww/scripts/sys/sys_power_mode.sh || echo 'null'")
+(defpoll dc_voltage  :interval "10s" "bash $HOME/.config/eww/scripts/sys/sys_dc_voltage.sh || echo 'null'")
+(defpoll power_mode  :interval "10s" "bash $HOME/.config/eww/scripts/sys/sys_power_mode.sh || echo 'null'")
 (defpoll power_draw  :interval "5s" "sensors | grep -m 1 'power1:' | awk '{print $2 \" \"$3}' || echo 'N/A'")
 
 ;; === CPU & GPU Stats ─────────────────────────────────────────────────────────
@@ -48,43 +48,43 @@
 (defpoll gpu        :interval "10m" "lspci | grep -i vga | cut -d ':' -f3 || echo 'null'")
 
 (defpoll cpu_usage  :interval "2s" "top -bn1 | grep 'Cpu(s)' | awk '{print int($2 + $4)}' || echo 'null'")
-(defpoll cpu_bar    :interval "2s" "bash ~/.config/eww/scripts/bar/bar_render.sh $(top -bn1 | grep 'Cpu(s)' | awk '{print int($2 + $4)}') || echo 'null'")
-(defpoll gpu_usage  :interval "2s" "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits || echo 'N/A'")
+(defpoll cpu_bar    :interval "2s" "bash $HOME/.config/eww/scripts/bar/bar_render.sh $(top -bn1 | grep 'Cpu(s)' | awk '{print int($2 + $4)}') || echo 'null'")
+(defpoll gpu_usage  :interval "2s" "echo 'N/A'")
 
 (defpoll cpu_temp   :interval "5s" "sensors | grep 'Tctl' | awk '{print $2}' || echo 'N/A'")
-(defpoll gpu_temp   :interval "5s" "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits || echo 'N/A'")
+(defpoll gpu_temp   :interval "5s" "echo 'N/A'")
 
 ;; Fan RPM values
 (defpoll cpu_fan_rpm :interval "5s" "sensors | grep -i 'cpu_fan' | awk '{print $2 \" RPM\"}' || echo 'null'")
 (defpoll gpu_fan_rpm :interval "5s" "sensors | grep -i 'gpu_fan' | awk '{print $2 \" RPM\"}' || echo 'null'")
 
 ;; Fan ASCII spinners
-(defpoll cpu_fan_ascii :interval "0.2s" "bash ~/.config/eww/scripts/sys/sys_fan_spin.sh cpu || echo 'null'")
-(defpoll gpu_fan_ascii :interval "0.2s" "bash ~/.config/eww/scripts/sys/sys_fan_spin.sh gpu || echo 'null'")
+(defpoll cpu_fan_ascii :interval "0.2s" "bash $HOME/.config/eww/scripts/sys/sys_fan_spin.sh cpu || echo 'null'")
+(defpoll gpu_fan_ascii :interval "0.2s" "bash $HOME/.config/eww/scripts/sys/sys_fan_spin.sh gpu || echo 'null'")
 
 ;; === Memory & Storage ─────────────────────────────────────────────────────────
 (defpoll ram_info    :interval "5s" "free -h | awk '/Mem:/ {print $3\" / \"$2}' || echo 'null'")
 (defpoll ram_percent :interval "5s" "free | awk '/Mem:/ {printf \"%d\", $3/$2 * 100}' || echo 'null'")
-(defpoll ram_bar     :interval "5s" "bash ~/.config/eww/scripts/bar/bar_render.sh $(free | awk '/Mem:/ {printf(\"%.0f\", $3/$2 * 100)}') || echo 'null'")
+(defpoll ram_bar     :interval "5s" "bash $HOME/.config/eww/scripts/bar/bar_render.sh $(free | awk '/Mem:/ {printf(\"%.0f\", $3/$2 * 100)}') || echo 'null'")
 (defpoll ram         :interval "5s" "free -h | awk '/Mem:/ {print $3 \"/\" $2}' || echo 'null'")
 
 (defpoll disk            :interval "10s" "df -h / | awk 'NR==2 {print $3 \"/\" $2}' || echo 'null'")
 (defpoll storage_percent :interval "5s" "df / | awk 'NR==2 {print int($3*100/$2)}' || echo 'null'")
-(defpoll storage_bar     :interval "5s" "bash ~/.config/eww/scripts/bar/bar_render.sh $(df / | awk 'NR==2 {print int($3*100/$2)}') || echo 'null'")
+(defpoll storage_bar     :interval "5s" "bash $HOME/.config/eww/scripts/bar/bar_render.sh $(df / | awk 'NR==2 {print int($3*100/$2)}') || echo 'null'")
 
 ;; === Networking ───────────────────────────────────────────────────────────────
-(defpoll upload_speed   :interval "3s" "bash ~/.config/eww/scripts/net/net_upload.sh || echo 'null'")
-(defpoll upload_bar     :interval "3s" "bash ~/.config/eww/scripts/net/net_upload.sh | xargs bash ~/.config/eww/scripts/net/net_upload_bar.sh || echo 'null'")
+(defpoll upload_speed   :interval "3s" "bash $HOME/.config/eww/scripts/net/net_upload.sh || echo 'null'")
+(defpoll upload_bar     :interval "3s" "bash $HOME/.config/eww/scripts/net/net_upload.sh | xargs bash $HOME/.config/eww/scripts/net/net_upload_bar.sh || echo 'null'")
 
-(defpoll download_speed :interval "3s" "bash ~/.config/eww/scripts/net/net_download.sh || echo 'null'")
-(defpoll download_bar   :interval "3s" "bash ~/.config/eww/scripts/net/net_download.sh | xargs bash ~/.config/eww/scripts/net/net_download_bar.sh || echo 'null'")
+(defpoll download_speed :interval "3s" "bash $HOME/.config/eww/scripts/net/net_download.sh || echo 'null'")
+(defpoll download_bar   :interval "3s" "bash $HOME/.config/eww/scripts/net/net_download.sh | xargs bash $HOME/.config/eww/scripts/net/net_download_bar.sh || echo 'null'")
 
-(defpoll ping_ms        :interval "5s" "bash ~/.config/eww/scripts/net/net_ping.sh || echo 'null'")
-(defpoll ping_bar       :interval "5s" "bash ~/.config/eww/scripts/net/net_ping.sh | xargs bash ~/.config/eww/scripts/net/net_ping_latency.sh || echo 'null'")
+(defpoll ping_ms        :interval "5s" "bash $HOME/.config/eww/scripts/net/net_ping.sh || echo 'null'")
+(defpoll ping_bar       :interval "5s" "bash $HOME/.config/eww/scripts/net/net_ping.sh | xargs bash $HOME/.config/eww/scripts/net/net_ping_latency.sh || echo 'null'")
 
-(defpoll vpn_status_text :interval "5s" "bash ~/.config/eww/scripts/net/net_vpn_status.sh || echo 'null'")
-(defpoll vpn_bar         :interval "5s" "bash ~/.config/eww/
-scripts/net/net_vpn.sh | xargs bash ~/.config/eww/scripts/net/net_vpn_bar.sh || echo 'null'")
+(defpoll vpn_status_text :interval "5s" "bash $HOME/.config/eww/scripts/net/net_vpn_status.sh || echo 'null'")
+(defpoll vpn_bar         :interval "5s" "bash $HOME/.config/eww/
+scripts/net/net_vpn.sh | xargs bash $HOME/.config/eww/scripts/net/net_vpn_bar.sh || echo 'null'")
 
 ;; === Time & Date ───────────────────────────────────────────────────────────────
 (defpoll welcome_date     :interval "30s" "date '+%A, %d %B %Y' || echo 'null'")
@@ -122,12 +122,12 @@ scripts/net/net_vpn.sh | xargs bash ~/.config/eww/scripts/net/net_vpn_bar.sh || 
 (defpoll reactor_gen   :interval "0.5s" "cat /tmp/reactor_frame.txt || echo 'null'")
 (defpoll reactor_ascii :interval "0.5s" "cat /tmp/reactor_frame.txt || echo 'standby'")
 
-(defpoll reactor_core_layout :interval "1s" "bash ~/.config/eww/scripts/ascii/ascii_core_layout.sh && cat /tmp/core_layout.txt || echo 'standby'")
+(defpoll reactor_core_layout :interval "1s" "bash $HOME/.config/eww/scripts/ascii/ascii_core_layout.sh && cat /tmp/core_layout.txt || echo 'standby'")
 
-(defpoll live_log_gen :interval "5s" "bash ~/.config/eww/scripts/ascii/ascii_live_log.sh || echo 'null'")
+(defpoll live_log_gen :interval "5s" "bash $HOME/.config/eww/scripts/ascii/ascii_live_log.sh || echo 'null'")
 (defpoll live_text    :interval "5s" "cat /tmp/live_text.txt || echo '--------------…'")
 
-(defpoll ascii_audio_status :interval "2s" "bash ~/.config/eww/scripts/audio/audio_cava_status.sh || echo 'null'")
+(defpoll ascii_audio_status :interval "2s" "bash $HOME/.config/eww/scripts/audio/audio_cava_status.sh || echo 'null'")
 
 ;; === Widgets ────────────────────────────────────────────────────────────────────
 (defwidget audio-visualizer []

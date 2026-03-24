@@ -1,5 +1,5 @@
 /* ──────────────────────────────────────────────────────────────────────────
-   °˖* ૮(  • ᴗ ｡)っ🍸  pewdiepie/archdaemon/dionysh  shhheersh
+   °˖* ૮(  • ᴗ ｡)っ🍸
    Waybar CSS styling
    vers. 1.0
    ────────────────────────────────────────────────────────────────────────── */
@@ -69,7 +69,7 @@ window#waybar {
 #custom-volume,
 #custom-battery,
 #custom-power,
-#custom-asus-profile,
+#custom-cpu-profile,
 #network,
 #battery,
 #pulseaudio,
@@ -122,12 +122,12 @@ window#waybar {
 }
 
 
-/* === Asus Profile ======================================================== */
+/* === cpu Profile ======================================================== */
 
-#custom-asus-profile {
+#custom-cpu-profile {
   font-weight: bold;
   font-size: 11.25px;
-  color: #e5c07b;
+  color: #fab387;
 }
 
 
@@ -213,7 +213,7 @@ window#waybar {
 #bluetooth:hover,
 #custom-bluetooth:hover,
 #custom-power:hover,
-#custom-asus-profile:hover,
+#custom-cpu-profile:hover,
 #custom-battery:hover,
 #battery:hover,
 #backlight:hover,

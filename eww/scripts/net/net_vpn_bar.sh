@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ~/.config/eww/scripts/net/net_vpn_bar.sh
+# $HOME/.config/eww/scripts/net/net_vpn_bar.sh
 # Render a 5-line bar directly based on VPN (ipsec) status.
 
 lines=5

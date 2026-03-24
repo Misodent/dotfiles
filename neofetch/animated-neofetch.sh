@@ -9,7 +9,7 @@ ascii_col=1
 text_col=60
 
 cache_file="$HOME/.cache/neofetch.txt"
-mkdir -p ~/.cache
+mkdir -p $HOME/.cache
 
 if [[ ! -f "$cache_file" || $(find "$cache_file" -mmin +60 2>/dev/null) ]]; then
   if command -v fastfetch >/dev/null 2>&1; then
@@ -27,7 +27,7 @@ tput civis
 trap 'tput cnorm; exit' INT TERM
 
 while true; do
-  for frame in ~/.config/neofetch/frames_colour/*.txt; do
+  for frame in $HOME/.config/neofetch/frames_colour/*.txt; do
     tput cup $ascii_row $ascii_col
     cat "$frame"
 

@@ -1,5 +1,5 @@
 /* ── Rofi Config ──────────────────────────────
-   Location: ~/.config/rofi/config.rasi
+   Location: $HOME/.config/rofi/config.rasi
    Description: Basic configuration + theme import
    ─────────────────────────────────────────── */
 

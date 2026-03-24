@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ~/.config/eww/scripts/net/net_vpn_status.sh
+# $HOME/.config/eww/scripts/net/net_vpn_status.sh
 # Show VPN status + country (for Eww)
 
 if /usr/bin/ipsec statusall 2>/dev/null | grep -q "ESTABLISHED"; then
