@@ -1,6 +1,6 @@
 # Dotfiles
 ───────────────────────────────────────────────  
-Dionysus vers. 1.0
+Dionysus vers. 1.1
 ───────────────────────────────────────────────  
 
 Rice config for **Hyprland** on Arch Linux,
