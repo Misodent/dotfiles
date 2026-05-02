@@ -1,6 +1,6 @@
 # Dotfiles
 ───────────────────────────────────────────────  
-Dionysus vers. 1.1
+Dionysus vers. 1.2
 ───────────────────────────────────────────────  
 
 Rice config for **Hyprland** on Arch Linux,
@@ -9,13 +9,10 @@ running on my **ThinkPad X1 Carbon** (_dionysus_)
 ## Features
   - Animated **Neofetch**
   - Dynamic **Waybar**
-  - ASCII **Cava Visualiser**
   - Nord-inspired **neon-radioactive theme**
 
 ##  Contents
 - [alacritty][alacritty] → terminal config  
-- [cava][cava] → audio visualizer  
-- [eww][eww] → HUD & widgets 
 - [hypr][hypr] → window manager  
 - [neofetch][neofetch] → animated fetch  
 - [rofi][rofi] → launcher + powermenu  
@@ -24,9 +21,6 @@ running on my **ThinkPad X1 Carbon** (_dionysus_)
 - [zshrc][zshrc] → shell configs  
 
 [alacritty]: alacritty/
-[cava]: cava/
-[eww]: eww/
-[firefox]: firefox/
 [hypr]: hypr/
 [neofetch]: neofetch/
 [rofi]: rofi/

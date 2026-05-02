@@ -3,7 +3,6 @@
 # ==================
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/Downloads/worldbanc/private/bin:$PATH"
 export PATH="/usr/bin/go:$HOME/go/bin:$PATH"
 
 # Pyenv (optional, only if installed)

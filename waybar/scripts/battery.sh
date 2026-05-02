@@ -30,9 +30,14 @@ fi
 # ASCII bar
 filled=$((capacity / 10))
 empty=$((10 - filled))
-bar=$(printf '█%.0s' $(seq 1 $filled))
-pad=$(printf '░%.0s' $(seq 1 $empty))
-ascii_bar="[$bar$pad]"
+bar=""
+for ((i=0; i<filled; i++)); do
+    bar+="█"
+done
+for ((i=0; i<empty; i++)); do
+    bar+="░"
+done
+ascii_bar="[$bar]"
 
 # Color thresholds
 if [ "$capacity" -lt 20 ]; then
