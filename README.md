@@ -1,13 +1,12 @@
 # Dotfiles
 ───────────────────────────────────────────────  
-Dionysus vers. 1.2
+Dionysus vers. 1.3
 ───────────────────────────────────────────────  
 
 Rice config for **Hyprland** on Arch Linux,
-running on my **ThinkPad X1 Carbon** (_dionysus_)
+running on my **ThinkPad X13** (_dionysus_)
 
 ## Features
-  - Animated **Neofetch**
   - Dynamic **Waybar**
   - Nord-inspired **neon-radioactive theme**
 
