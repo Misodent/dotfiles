@@ -37,7 +37,7 @@ mainbox {
 
 borderbox {
   orientation: horizontal;
-  children: [ "imagebox", "contentbox" ];
+  children: [ "contentbox" ];
   padding: 0px;
   spacing: 0px;
   border-radius: 3px;
@@ -49,13 +49,6 @@ contentbox {
   spacing: 0px;
   padding: 0px;
   expand: true;
-}
-
-/* ── Imagebox ────────────────────────────── */
-imagebox {
-  background-image: url("~/.config/rofi/image.png");
-  background-repeat: false;
-  size: 281px 586px;
 }
 
 /* ── Elements ────────────────────────────── */

@@ -59,9 +59,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
 #  Animated Neofetch Splash
 # ==================
 if [[ -n $PS1 ]]; then
-   $HOME/.config/neofetch/animated-neofetch.sh 0.05
-  clear
+  neofetch 0.05
 fi
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+[ -f "/home/miso/.ghcup/env" ] && . "/home/miso/.ghcup/env" # ghcup-env

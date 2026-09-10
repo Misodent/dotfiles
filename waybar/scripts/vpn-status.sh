@@ -48,5 +48,5 @@ if ip a | grep -q "100\."; then
     
     echo "<span foreground='#fab387'>[ VPN ] </span>""<span foreground='#56b6c2'>$country</span>"
 else
-    echo "<span foreground='#fab387'>[ VPN ] </span>""<span foreground='#bf616a'>KAPUTT</span>"
+    echo "<span foreground='#fab387'>[ VPN ] </span>""<span foreground='#bf616a'>UIT</span>"
 fi
